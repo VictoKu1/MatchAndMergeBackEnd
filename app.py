@@ -14,20 +14,12 @@ def match_and_merge_route():
     if request.method == 'POST':
         graph = request.form['graph']
         number = request.form['number']
-        # graph = request.json.get('graph')
-        # print graph type
-        print(type(graph))
-        # number = request.json.get('number')
         edges = eval(graph)
         G = nx.Graph()
         G.add_edges_from(edges)
         k = int(number)
         # Call match_and_merge function
         result = saapir.match_and_merge(G, k)
-        print(result)
-        result = str(result)
-        print(type(result))
-        # Load /result.html with the result
         return render_template('result.html', result=result)
     else:
         return render_template('result.html')
@@ -35,8 +27,6 @@ def match_and_merge_route():
 if __name__ == '__main__':
     # Run the app
     app.run(host="0.0.0.0", port=5001)
-
-
 
 
 
