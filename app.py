@@ -29,6 +29,6 @@ if __name__ == '__main__':
     s.close()
     print("Port: "+p)
     # Run the app
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="0.0.0.0", port=5001)
 
 
