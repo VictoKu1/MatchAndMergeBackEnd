@@ -7,7 +7,6 @@ start() {
     echo "Starting app....."
     export FLASK_APP=app.py
     python3 app.py &
-    echo "App started with PID: $(lsof -t -i:5001)"
     echo "App started." 
 }
 
@@ -79,6 +78,7 @@ main() {
             ;;
     esac
 }
+
 
 
 

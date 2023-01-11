@@ -4,17 +4,17 @@
   <title>Result</title>
 </head>
 <body>
+  <div style="text-align: center">
   <h1>Result:</h1>
   <div id="result"></div>
+  <!-- Get the result parameter from the render_template which calls this page -->
   <script>
-    // Get the result from the session
-    var result = sessionStorage.getItem("result");
-    // Display the result in the div
+    var result = {{ result }};
+    result = JSON.stringify(result);
     document.getElementById("result").innerHTML = result;
   </script>
+  </div>
 </body>
-</html>
-
 
 
 

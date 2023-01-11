@@ -7,7 +7,7 @@
 <body>
   <div style="text-align: center">
   <h1>Social aware assignment of passengers in Ridesharing</h1>
-  <form id="form" method="post">
+  <form id="form" action="/result" method="POST"> 
     <label for="graph">Graph</label>
     <br>
     <textarea rows="4" cols="50" id="graph" name="graph"></textarea>
@@ -35,7 +35,7 @@
         var number = document.getElementById("number").value;
 
         // Send a POST request to the server
-        fetch("/match_and_merge", {
+        fetch("/result", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -46,12 +46,23 @@
                 number: number
             })
         })
-        .then(response => response.json())
-        .then(data => {
-            window.location.href = response.url;
+        .then(response => {
+            if (response.ok){
+              window.location.href = response.url;
+            } 
+            else 
+            {
+              throw new Error('Something went wrong on api server!');
+            }
         })
+        .catch(error => {
+            console.error(error);
+        });
     }
   </script>
   </div>
 </body>
 </html>
+
+
+
