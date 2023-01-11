@@ -22,13 +22,13 @@ def match_and_merge_route():
     return jsonify({'result': result})
 
 if __name__ == '__main__':
-    # Find a free port and print it
+    # Find a free port to run the app and print it
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind(('', 0))
-    # Put the port number to the variable p
     p = s.getsockname()[1]
-    print(s.getsockname()[1])
     s.close()
+    print("Port: "+p)
     # Run the app
     app.run(host="0.0.0.0", port=p)
+
 
