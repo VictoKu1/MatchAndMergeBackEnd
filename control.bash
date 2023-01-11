@@ -11,6 +11,7 @@ start() {
     echo "App started." 
 }
 
+
 # Function to stop the app by killing the process with the PID saved in pid.txt.
 stop() {
     echo "Stopping app....."
@@ -30,6 +31,7 @@ status() {
     fi
 }
 
+
 # Function to display the help menu.
 help() {
     echo "Usage: ./control.bash [start|stop|status|help]"
@@ -38,6 +40,9 @@ help() {
     echo "status: Check if the app is running."
     echo "help: Display this help menu."
 }
+
+
+
 
 # Main function to run the script.
 main() {
@@ -59,5 +64,6 @@ main() {
             ;;
     esac
 }
+
 
 main $1

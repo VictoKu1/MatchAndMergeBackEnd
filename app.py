@@ -14,15 +14,15 @@ def match_and_merge_route():
     graph = request.json.get('graph')
     number = request.json.get('number')
     edges = eval(graph)
-    G=nx.Graph()
+    G = nx.Graph()
     G.add_edges_from(edges)
     k = int(number)
     # Call match_and_merge function
     result = saapir.match_and_merge(G, k)
     return jsonify({'result': result})
 
+
 if __name__ == '__main__':
     # Run the app
     app.run(host="0.0.0.0", port=5001)
-
 

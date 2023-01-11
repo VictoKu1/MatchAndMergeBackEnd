@@ -16,12 +16,11 @@ import networkx as nx
 from networkx.utils import not_implemented_for
 import logging
 
-__all__ = ["match_and_merge"]
-
 # Set the logger
 LOG_FORMAT = "%(levelname)s, time: %(asctime)s ,line: %(lineno)d, %(message)s"
 logging.basicConfig(filename="social_aware_assignment_of_passengers_in_ridesharing.log", level=logging.DEBUG,format=LOG_FORMAT)
 logger = logging.getLogger()
+
 
 @not_implemented_for("directed")
 def match_and_merge(G: nx.Graph, k: int) -> list:
@@ -175,5 +174,6 @@ def match_and_merge(G: nx.Graph, k: int) -> list:
     # Return P
     logger.debug(f"Returning P={P}")
     return P
+
 
     
