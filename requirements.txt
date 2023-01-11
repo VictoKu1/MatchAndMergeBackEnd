@@ -2,13 +2,5 @@ numpy
 scipy
 matplotlib
 pandas
-osmnx
-contextily
-seaborn
-cairocffi
-igraph
-lxml
-pydot
-sympy
 networkx
 flask
