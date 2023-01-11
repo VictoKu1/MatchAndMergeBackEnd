@@ -5,15 +5,25 @@
 </head>
 <body>
   <div style="text-align: center">
+  <h1>Input</h1>
+  <div id="graph"></div>
+  <div id="number"></div>
   <h1>Result:</h1>
   <div id="result"></div>
   <script>
+    var graph = {{ graph }};
+    graph = JSON.stringify(graph);
+    document.getElementById("graph").innerHTML = graph;
+    var number = {{ number }};
+    number = JSON.stringify(number);
+    document.getElementById("number").innerHTML = number;
     var result = {{ result }};
     result = JSON.stringify(result);
     document.getElementById("result").innerHTML = result;
   </script>
   </div>
 </body>
+
 
 
 

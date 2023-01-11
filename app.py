@@ -1,5 +1,5 @@
-from flask import Flask, request, jsonify, render_template, redirect, url_for, session
-import social_aware_assignment_of_passengers_in_ridesharing as saapir
+from flask import Flask, request, render_template
+from social_aware_assignment_of_passengers_in_ridesharing import match_and_merge
 import networkx as nx
 
 app = Flask(__name__)
@@ -18,8 +18,8 @@ def match_and_merge_route():
     G.add_edges_from(edges)
     k = int(number)
     # Call match_and_merge function
-    result = saapir.match_and_merge(G, k)
-    return render_template('result.html', result=result)
+    result = match_and_merge(G, k)
+    return render_template('result.html', result=result, graph=graph, number=number)
 
 if __name__ == '__main__':
     # Run the app
