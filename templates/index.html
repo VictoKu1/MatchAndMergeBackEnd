@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Social aware assignment of passengers in Ridesharing</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+  <h1>Social aware assignment of passengers in Ridesharing</h1>
+  <form id="form" method="post" onsubmit="submitForm();">
+    <label for="graph">Graph</label>
+    <textarea rows="4" cols="50" id="graph" name="graph"></textarea>
+    <br>
+    <label for="number">Number</label>
+    <input type="number" id="number" name="number">
+    <br><br>
+    <button type="submit">Submit</button>
+  </form> 
+  <br>
+  <div id="output"></div>
+  <script>
+    function submitForm() {
+        // Get the form data
+        var graph = document.getElementById("graph").value;
+        var number = document.getElementById("number").value;
+
+        // Send a POST request to the server
+        fetch("/match_and_merge", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                graph: graph,
+                number: number
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("output").innerHTML = JSON.stringify(data);
+        });
+
+        // Prevent the form from submitting
+        return false;
+    }
+    </script>
+</body>
+</html>
