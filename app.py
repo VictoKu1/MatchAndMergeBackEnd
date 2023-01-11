@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 import social_aware_assignment_of_passengers_in_ridesharing as saapir
+import networkx as nx
 
 app = Flask(__name__)
 
@@ -13,8 +14,8 @@ def match_and_merge_route():
     graph = request.json.get('graph')
     number = request.json.get('number')
 
-    # Convert input graph data to edges list format
-    edges = [tuple(map(int,edge.split(','))) for edge in graph.strip('[]').split('), (')]
+    edges = [tuple(map(int, edge.split(','))) for edge in graph.strip('[]').split('), (')]
+    print(edges)
     G=nx.Graph()
     G.add_edges_from(edges)
     k = int(number)
@@ -25,5 +26,3 @@ def match_and_merge_route():
 if __name__ == '__main__':
     app.run(debug=True)
 
-
-    
