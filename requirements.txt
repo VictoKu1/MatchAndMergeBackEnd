@@ -2,7 +2,7 @@ numpy
 scipy
 matplotlib
 pandas
-socket
+sockets
 networkx
 flask
 
