@@ -20,6 +20,8 @@ stop() {
     echo "App stopped."
 }
 
+
+
 # Fuction to check if the app is running.
 status() {
     echo "Checking status....."
@@ -30,16 +32,26 @@ status() {
         echo "App is not running."
     fi
 }
+# Function to restart the app.
+restart() {
+    echo "Restarting app....."
+    stop
+    start
+}
+
+
 
 
 # Function to display the help menu.
 help() {
-    echo "Usage: ./control.bash [start|stop|status|help]"
+    echo "Usage: ./control.bash [start|stop|status|restart|help]"
     echo "start: Start the app."
     echo "stop: Stop the app."
     echo "status: Check if the app is running."
+    echo "restart: Restart the app."
     echo "help: Display this help menu."
 }
+
 
 
 
@@ -53,6 +65,9 @@ main() {
         stop)
             stop
             ;;
+        restart)
+            restart
+            ;;
         status)
             status
             ;;
@@ -64,6 +79,17 @@ main() {
             ;;
     esac
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 main $1

@@ -5,19 +5,30 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body>
+  <div style="text-align: center">
   <h1>Social aware assignment of passengers in Ridesharing</h1>
-  <form id="form" method="post" onsubmit="submitForm();">
+  <form id="form" method="post">
     <label for="graph">Graph</label>
+    <br>
     <textarea rows="4" cols="50" id="graph" name="graph"></textarea>
     <br>
     <label for="number">Number</label>
+    <br>
     <input type="number" id="number" name="number">
     <br><br>
-    <button type="submit">Submit</button>
+    <!-- Show pottential input-->
+    <label for="first">Example:</label>
+    <br>
+    <label for="second">Graph: [(1, 2), (2, 3), (3, 4), (4, 5), (4, 6)]</label>
+    <br>
+    <label for="third">Number: 4</label>
+    <br><br>     
+    <button type="submit" onclick="submitForm()">Submit</button>
   </form> 
   <br>
   <div id="output"></div>
   <script>
+    //* Return the result of the client and move to the result page
     function submitForm() {
         // Get the form data
         var graph = document.getElementById("graph").value;
@@ -29,6 +40,7 @@
             headers: {
                 'Content-Type': 'application/json'
             },
+            redirect: 'follow',
             body: JSON.stringify({
                 graph: graph,
                 number: number
@@ -36,33 +48,10 @@
         })
         .then(response => response.json())
         .then(data => {
-          document.getElementById("output").innerHTML = JSON.stringify(data);
-        });
-
-        // Prevent the form from submitting
-        return false;
+            window.location.href = response.url;
+        })
     }
-    </script>
+  </script>
+  </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

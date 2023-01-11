@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, redirect, url_for, session
 import social_aware_assignment_of_passengers_in_ridesharing as saapir
 import networkx as nx
 
@@ -19,8 +19,16 @@ def match_and_merge_route():
     k = int(number)
     # Call match_and_merge function
     result = saapir.match_and_merge(G, k)
-    return jsonify({'result': result})
+    session['result'] = result
+    return redirect(url_for('result'))
 
+@app.route('/result', methods=['GET'])
+def result():
+    # Get the result from the session
+    result = session.get('result')
+
+    # Render the result page
+    return render_template('result.html', result=result)
 
 if __name__ == '__main__':
     # Run the app
