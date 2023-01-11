@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 import social_aware_assignment_of_passengers_in_ridesharing as saapir
 import networkx as nx
-import socket
+
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
@@ -22,12 +22,6 @@ def match_and_merge_route():
     return jsonify({'result': result})
 
 if __name__ == '__main__':
-    # Find a free port to run the app and print it
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.bind(('', 0))
-    p = s.getsockname()[1]
-    s.close()
-    print("Port: "+p)
     # Run the app
     app.run(host="0.0.0.0", port=5001)
 
