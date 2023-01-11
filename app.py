@@ -13,9 +13,7 @@ def match_and_merge_route():
     # Get the form data
     graph = request.json.get('graph')
     number = request.json.get('number')
-
-    edges = [tuple(map(int, edge.split(','))) for edge in graph.strip('[]').split('), (')]
-    print(edges)
+    edges = eval(graph)
     G=nx.Graph()
     G.add_edges_from(edges)
     k = int(number)
@@ -24,5 +22,7 @@ def match_and_merge_route():
     return jsonify({'result': result})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=80)
+
+
 
