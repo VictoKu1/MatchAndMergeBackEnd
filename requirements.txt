@@ -3,7 +3,6 @@ scipy
 matplotlib
 pandas
 osmnx
-momepy
 contextily
 seaborn
 cairocffi
