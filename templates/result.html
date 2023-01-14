@@ -14,8 +14,7 @@
   <h1>Result:</h1>
   <div id="result"></div>
   <script>
-    var graph = {{ graph }};
-    graph = JSON.stringify(graph);
+    var graph = '{{ graph }}';
     document.getElementById("graph").innerHTML = graph;
     var number = {{ number }};
     number = JSON.stringify(number);
@@ -27,6 +26,7 @@
   </div>
 </body>
 </html>
+
 
 
 
