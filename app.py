@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from social_aware_assignment_of_passengers_in_ridesharing import match_and_merge
+from coalition_formation import match_and_merge
 import networkx as nx
 
 app = Flask(__name__)
