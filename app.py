@@ -1,8 +1,18 @@
 from flask import Flask, request, render_template
 from coalition_formation import match_and_merge
 import networkx as nx
+import logging
 
 app = Flask(__name__)
+
+# Set the logger
+LOG_FORMAT = "%(levelname)s, time: %(asctime)s ,line: %(lineno)d, %(message)s"
+logging.basicConfig(
+    filename="social_aware_assignment_of_passengers_in_ridesharing.log",
+    level=logging.DEBUG,
+    format=LOG_FORMAT,
+)
+logger = logging.getLogger()
 
 @app.route('/')
 def home():
@@ -24,5 +34,36 @@ def match_and_merge_route():
 if __name__ == '__main__':
     # Run the app
     app.run(host="0.0.0.0", port=5001)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
