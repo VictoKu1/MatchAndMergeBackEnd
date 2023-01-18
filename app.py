@@ -8,7 +8,7 @@ app = Flask(__name__)
 # Set the logger
 LOG_FORMAT = "%(levelname)s, time: %(asctime)s ,line: %(lineno)d, %(message)s"
 logging.basicConfig(
-    filename="social_aware_assignment_of_passengers_in_ridesharing.log",
+    filename="coalition_formation.log",
     level=logging.DEBUG,
     format=LOG_FORMAT,
 )
