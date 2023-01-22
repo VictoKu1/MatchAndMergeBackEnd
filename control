@@ -15,6 +15,10 @@ start() {
 stop() {
     echo "Stopping app....."
     kill $(lsof -t -i:5001)
+    # Copy /*.log file to prev_logs folder in a way that the filename /<old_filename>.log changes to prev_logs/<old_filename>_stop_<date_time>.log, where date_time is the current date and time with milliseconds.
+    old_filename=$(ls *.log)
+    new_filename="prev_logs/${old_filename%.*}_stop_$(date +%Y-%m-%d_%H-%M-%S-%3N).log"
+    cp $old_filename $new_filename
     rm -rf __pycache__/ *.log pid.txt
     echo "App stopped."
 }
@@ -78,10 +82,6 @@ main() {
             ;;
     esac
 }
-
-
-
-
 
 
 

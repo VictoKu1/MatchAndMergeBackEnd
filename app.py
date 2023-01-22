@@ -2,13 +2,16 @@ from flask import Flask, request, render_template
 from coalition_formation import match_and_merge
 import networkx as nx
 import logging
+import datetime
 
 app = Flask(__name__)
 
 # Set the logger
 LOG_FORMAT = "%(levelname)s, time: %(asctime)s ,line: %(lineno)d, %(message)s"
+# Date and time (including milliseconds) for log file name
+date_time = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S-%f")
 logging.basicConfig(
-    filename="coalition_formation.log",
+    filename="coalition_formation_start_"+date_time+".log",
     level=logging.DEBUG,
     format=LOG_FORMAT,
 )
@@ -34,10 +37,6 @@ def match_and_merge_route():
 if __name__ == '__main__':
     # Run the app
     app.run(host="0.0.0.0", port=5001)
-
-
-
-
 
 
 
