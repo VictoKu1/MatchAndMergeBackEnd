@@ -1,8 +1,8 @@
-# Simple Flask Server For The Match_And_Merge Algorithm Implementation
+## Simple Flask Server For The Match_And_Merge Algorithm Implementation
 
 
 
-##### The Algorithm
+#### The Algorithm
 
 [The original code in netwrokx](https://github.com/VictoKu1/networkx/blob/main/networkx/algorithms/approximation/coalition_formation.py)
 
