@@ -13,9 +13,9 @@ which is written by Victor Kushnir.
 Also, an online web page was built for running the algorithm:
 https://victoku1.pythonanywhere.com/
 """
-from typing import Dict, List
 import logging
 import os
+from typing import Dict, List
 
 import networkx as nx
 from networkx.utils import not_implemented_for
@@ -25,7 +25,9 @@ __all__ = ["match_and_merge"]
 
 def set_logger():
     if os.path.exists("coalition_formation.log"):
-        os.remove("coalition_formation.log")
+        # Clear the log file
+        with open("coalition_formation.log", "w") as log_file:
+            log_file.truncate()
     # Set the logger
     LOG_FORMAT = "%(levelname)s, time: %(asctime)s ,line: %(lineno)d, %(message)s"
     logging.basicConfig(
