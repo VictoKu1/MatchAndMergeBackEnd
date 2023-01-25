@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Result</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body>
   <div style="text-align: center">
@@ -13,6 +14,16 @@
   <div id="number"></div>
   <h1>Result:</h1>
   <div id="result"></div>
+  <div style="text-align: left">
+    <details>
+      <summary>Logs</summary>
+      <p>
+        <br>
+        <pre id="log">{{ log }}</pre>
+        <br>
+      </p>
+    </details>
+  </div>
   <script>
     var graph = '{{ graph }}';
     document.getElementById("graph").innerHTML = graph;
@@ -26,7 +37,6 @@
   </div>
 </body>
 </html>
-
 
 
 
