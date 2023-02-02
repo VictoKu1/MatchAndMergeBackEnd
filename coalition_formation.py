@@ -115,7 +115,8 @@ def match_and_merge(Graph: nx.Graph, k: int) -> list:
         logger.error(f"Checked for k ({k}) < 0, should now raise an error")
         raise nx.NetworkXError("k should be 0≤k≤|V(Graph)|")
     elif k == 0:
-        logger.debug(f"Checked for k ({k}) == 0, should now return an empty list")
+        logger.debug(
+            f"Checked for k ({k}) == 0, should now return an empty list")
         return []
     # If k is 1, return a partition of the Graph, where each node is a list
     elif k == 1:
@@ -155,7 +156,8 @@ def match_and_merge(Graph: nx.Graph, k: int) -> list:
             logger.debug(f" Make an empty graph and put it in G[{l+1}]")
             # Put the nodes of G_l in G_(l+1)
             G[l + 1].add_nodes_from(tuple(G[l].nodes()))
-            logger.debug(f" Put the nodes of G_{l}={tuple(G[l].nodes())} in G[{l+1}]")
+            logger.debug(
+                f" Put the nodes of G_{l}={tuple(G[l].nodes())} in G[{l+1}]")
             # For every match in M_l, add a unified node to G_(l+1) so it will be used to find it when needed
             logger.debug(f" Looping on every pair in M[{l}]={M[l]}")
             for match in M[l]:
@@ -167,7 +169,9 @@ def match_and_merge(Graph: nx.Graph, k: int) -> list:
                 logger.debug(f"     Added a unified node={match} to G[{l+1}]")
                 # Remove the nodes in the match from G_(l+1)
                 G[l + 1].remove_nodes_from(list(match))
-                logger.debug(f"     Removed the nodes in the pair={match} from G[{l+1}]")
+                logger.debug(
+                    f"     Removed the nodes in the pair={match} from G[{l+1}]"
+                )
             logger.debug(
                 f"  Looping on every unified node in G[{l+1}] which is {unified_nodes}"
             )
@@ -235,3 +239,10 @@ def tuple_flattener(P: list) -> list:
     P.sort()
     # Return P
     return P
+
+
+
+
+
+
+
