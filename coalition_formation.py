@@ -205,9 +205,9 @@ def match_and_merge(Graph: nx.Graph, k: int) -> list:
         logger.debug(f"Calling tuple_flattener(P={P})")
         P = tuple_flattener(P)
         logger.debug(f"tuple_flattener returned P={P}")
-    # Return P
-    logger.debug(f"Returning P={P}")
-    return P
+        # Return P
+        logger.debug(f"Returning P={P}")
+        return P
 
 
 def tuple_flattener(P: list) -> list:
