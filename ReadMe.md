@@ -18,7 +18,7 @@ https://victoku1.pythonanywhere.com/
 
 or
 
-http://157.230.22.122:5001/
+https://victorkushnir.csariel.xyz/
 
 
 

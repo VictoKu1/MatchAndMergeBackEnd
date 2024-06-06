@@ -2,8 +2,18 @@ numpy
 scipy
 matplotlib
 pandas
+flask
 sockets
 networkx
+
+
+
+
+
+
+
+
+
 
 
 

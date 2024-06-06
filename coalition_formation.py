@@ -242,7 +242,3 @@ def tuple_flattener(P: list) -> list:
 
 
 
-
-
-
-
